@@ -1,6 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PLATFORM = process.env.PLATFORM || 'unset';
+
+app.use(cors()); // allow all origins (test app) so the FE's cross-origin fetch works
 
 app.get('/health', (_req, res) => res.status(200).send('ok'));
 
